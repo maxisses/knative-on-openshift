@@ -33,10 +33,10 @@ spec:
         ports:
         - containerPort: 9080
         env:
-        - name: LOG_DIR
-          value: "/tmp/logs"
         - name: SERVICES_DOMAIN
           value: knative-tut.svc.cluster.local
+        - name: LOG_DIR
+          value: "/tmp/logs"
         - name: STAR_COLOR
           value: black
         - name: ENABLE_RATINGS

@@ -20,10 +20,6 @@ spec:
       annotations:
         # minimum --> knative heißt nicht zwangsläufig 0
         autoscaling.knative.dev/minScale: "1"
-        # maximum an erlaubten pods
-        autoscaling.knative.dev/maxScale: "15"
-        # handle 10 requests auf einmal pro pod
-        autoscaling.knative.dev/target: "10"
     spec:
       serviceAccountName: bookinfo-details
       containers:
