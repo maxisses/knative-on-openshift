@@ -15,12 +15,16 @@ spec:
   template:
     metadata:
       annotations:
+        # ich kann zwischen knative autoscaler und k8s autoscaler wählen
+        autoscaling.knative.dev/class: "kpa.autoscaling.knative.dev"
         # minimum --> knative heißt nicht zwangsläufig 0
         autoscaling.knative.dev/minScale: "1"
         # maximum an erlaubten pods
         autoscaling.knative.dev/maxScale: "15"
         # handle 10 requests auf einmal pro pod
-        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target: "2"
+        # Alternative zum default "concurrency" ist requests per second
+        autoscaling.knative.dev/metric: "rps"
     spec:
       containers:
       - image: maxisses/productpage-kn:latest
@@ -33,5 +37,5 @@ spec:
         - containerPort: 9080
         env:
           - name: SERVICES_DOMAIN
-            value: knative-tut.svc.cluster.local
+            value: md-bookinfo-kn.svc.cluster.local
       serviceAccountName: bookinfo-productpage

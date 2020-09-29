@@ -23,7 +23,7 @@ spec:
         # maximum an erlaubten pods
         autoscaling.knative.dev/maxScale: "15"
         # handle 10 requests auf einmal pro pod
-        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target: "5"
     spec:
       serviceAccountName: bookinfo-reviews
       containers:
@@ -36,7 +36,7 @@ spec:
         - name: LOG_DIR
           value: "/tmp/logs"
         - name: SERVICES_DOMAIN
-          value: knative-tut.svc.cluster.local
+          value: md-bookinfo-kn.svc.cluster.local
         - name: STAR_COLOR
           value: black
         - name: ENABLE_RATINGS
